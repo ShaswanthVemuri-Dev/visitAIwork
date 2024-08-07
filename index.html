@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Visit AI</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="shortcut icon" href="/logo.jpg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+  <main id="page1">
+    <div class="heading">
+      <div id="container">
+        <span id="text1"></span>
+        <span id="text2"></span>
+      </div>
+
+      <svg id="filters">
+        <defs>
+          <filter id="threshold">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0
+                      0 1 0 0 0
+                      0 0 1 0 0
+                      0 0 0 255 -140" />
+          </filter>
+        </defs>
+      </svg>
+    </div>
+    <div class="vid_n_info">
+      <div id="vid" class="vid">
+        <video id="video" width="720" height="560" autoplay muted></video>
+      </div>
+      <div class="info">
+        <div class="person_info">
+          <div class="id-item" id="virtual-id">
+            <h3>Virtual ID: </h3>
+            <h4 id="virtualIdTxt"></h4>
+          </div>
+          <div class="id-item" id="time-of-entry">
+            <h3>Time of Entry: </h3>
+            <h4 id="timeOfEntryTxt"></h4>
+          </div>
+          <!-- <div class="id-item" id="customer-status">
+            <h3>Customer Status: </h3>
+            <h4 id="customerStatus"></h4>
+          </div> -->
+        </div>
+        <p>VISIT AI detects and identifies customers using facial recognition through CCTV cameras and waiter robots at
+          the tables, similar to how your face is detected now with Face ID APIs. This system captures and analyzes
+          customer data to provide personalized promotions, deals, and more. By integrating Google Vision APIs, the
+          system can be further enhanced to deliver even more accurate and efficient service, helping restaurants build
+          stronger customer relationships and improve their operations.</p>
+      </div>
+    </div>
+    <button id="learnmorebtn" class="learn-more">
+      <span class="circle" aria-hidden="true">
+        <span class="icon arrow"></span>
+      </span>
+      <span class="button-text">Learn More</span>
+    </button>
+  </main>
+  <main id="page2">
+    <div class="heading">
+      <h2>Customer Details</h2>
+    </div>
+    <div class="details_info">
+      <div>
+        <h3>Seating Info</h3>
+        <div class="seating_info_details">
+          <div class="seating_info_detail">
+            <h4>Table Number: </h4>
+            <p></p>
+          </div>
+          <div class="seating_info_detail">
+            <h4>Chair Number: </h4>
+            <p></p>
+          </div>
+          <div class="seating_info_detail">
+            <h4>Number of Surrounding VIDs: </h4>
+            <p></p>
+          </div>
+        </div>
+        <p>The above information will be filled automatically by the system with
+          the help of virtual IDS and their positions in the restaurant</p>
+      </div>
+      <div id="orderinfo">
+        <h3>Order Info</h3>
+        <div class="orderinputs">
+          <div class="input-container">
+            <input class="input" name="text" type="text" placeholder="Item" id="item" />
+          </div>
+          <div class="input-container">
+            <input class="input" name="text" type="number" placeholder="Quantity" id="quantity" />
+          </div>
+          <div class="input-container">
+            <input class="input" name="text" type="number" placeholder="Price" id="price" />
+          </div>
+          <div id="addItem" tabindex="0" class="plusButton">
+            <svg class="plusIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+              <g mask="url(#mask0_21_345)">
+                <path d="M13.75 23.75V16.25H6.25V13.75H13.75V6.25H16.25V13.75H23.75V16.25H16.25V23.75H13.75Z"></path>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <table class="table_container">
+          <thead>
+            <tr>
+              <th>
+                <h5>Sr. No.</h1>
+              </th>
+              <th>
+                <h5>Item</h1>
+              </th>
+              <th>
+                <h5>Qty.</h1>
+              </th>
+              <th>
+                <h5>Price</h1>
+              </th>
+              <th>
+                <h4>Action</h4>
+              </th>
+            </tr>
+          </thead>
+          <tbody id="orderTableBody">
+          </tbody>
+        </table>
+        <p>The above information need to be entered manually by the waiters or
+          can be automated by connecting to the existing restaurant's
+          management software</p>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: row; gap: 1rem;">
+      <button id="learnmorebtn2" class="learn-more learn-more2">
+        <span class="circle" aria-hidden="true">
+          <span class="icon arrow"></span>
+        </span>
+        <span class="button-text">Previous</span>
+      </button>
+      <button id="learnmorebtn3" class="learn-more">
+        <span class="circle" aria-hidden="true">
+          <span class="icon arrow"></span>
+        </span>
+        <span class="button-text">Next</span>
+      </button>
+    </div>
+  </main>
+  <main id="page3">
+    <div class="details_info smallPc">
+      <div>
+        <h3>Seating Info</h3>
+        <div class="seating_info_details">
+          <div class="seating_info_detail">
+            <h4>Table Number: </h4>
+            <p></p>
+          </div>
+          <div class="seating_info_detail">
+            <h4>Chair Number: </h4>
+            <p></p>
+          </div>
+          <div class="seating_info_detail">
+            <h4>Number of Surrounding VIDs: </h4>
+            <p></p>
+          </div>
+        </div>
+        <p>The above information will be filled automatically by the system with
+          the help of virtual IDS and their positions in the restaurant</p>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: row; gap: 1rem;">
+      <button id="learnmorebtn4" class="learn-more learn-more2">
+        <span class="circle" aria-hidden="true">
+          <span class="icon arrow"></span>
+        </span>
+        <span class="button-text">Previous</span>
+      </button>
+      <button id="learnmorebtn5" class="learn-more">
+        <span class="circle" aria-hidden="true">
+          <span class="icon arrow"></span>
+        </span>
+        <span class="button-text">Next</span>
+      </button>
+    </div>
+  </main>
+  <main id="page4">
+    <div class="details_info smallPc">
+      <div id="orderinfo">
+        <h3>Order Info</h3>
+        <div class="orderinputs">
+          <div class="input-container">
+            <input class="input" name="text" type="text" placeholder="Item" id="item2" />
+          </div>
+          <div class="input-container">
+            <input class="input" name="text" type="number" placeholder="Quantity" id="quantity2" />
+          </div>
+          <div class="input-container">
+            <input class="input" name="text" type="number" placeholder="Price" id="price2" />
+          </div>
+          <div id="addItem2" tabindex="0" class="plusButton">
+            <svg class="plusIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+              <g mask="url(#mask0_21_345)">
+                <path d="M13.75 23.75V16.25H6.25V13.75H13.75V6.25H16.25V13.75H23.75V16.25H16.25V23.75H13.75Z"></path>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <table class="table_container">
+          <thead>
+            <tr>
+              <th>
+                <h5>Sr. No.</h1>
+              </th>
+              <th>
+                <h5>Item</h1>
+              </th>
+              <th>
+                <h5>Qty.</h1>
+              </th>
+              <th>
+                <h5>Price</h1>
+              </th>
+              <th>
+                <h4>Action</h4>
+              </th>
+            </tr>
+          </thead>
+          <tbody id="orderTableBody2">
+          </tbody>
+        </table>
+        <p style="width: 70%;">The above information need to be entered manually by the waiters or
+          can be automated by connecting to the existing restaurant's
+          management software</p>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: row; gap: 1rem;">
+      <button id="learnmorebtn6" class="learn-more learn-more2">
+        <span class="circle" aria-hidden="true">
+          <span class="icon arrow"></span>
+        </span>
+        <span class="button-text">Previous</span>
+      </button>
+      <button id="learnmorebtn7" class="learn-more">
+        <span class="circle" aria-hidden="true">
+          <span class="icon arrow"></span>
+        </span>
+        <span class="button-text">Next</span>
+      </button>
+    </div>
+  </main>
+  <script src="animate.js"></script>
+  <script src="face-api.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+
+</html>
